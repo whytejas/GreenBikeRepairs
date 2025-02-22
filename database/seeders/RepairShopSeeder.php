@@ -19,14 +19,14 @@ class RepairShopSeeder extends Seeder
                     'name' => 'Fast Fix Vélo',
                     'address' => '123 Rue de Paris',
                     'phone' => '0123456789',
-                    'latitude' => 48.8566,
+                    'latitude' => 48.8766,
                     'longitude' => 2.3522,
 
                     'name' => 'Vélo lovers',
                     'address' => '77 avenue Kennedy',
                     'phone' => '0123456789',
-                    'latitude' => 48.8566,
-                    'longitude' => 2.3522,
+                    'latitude' => 48.9566,
+                    'longitude' => 2.4522,
                 ],
 
                 [
@@ -34,23 +34,23 @@ class RepairShopSeeder extends Seeder
                     'address' => 'Boulevard Haussmann',
                     'phone' => '0123456789',
                     'latitude' => 48.8566,
-                    'longitude' => 2.3522,
+                    'longitude' => 2.4522,
                 ],
 
                 [
                     'name' => 'Allô Vélo',
                     'address' => 'Rue de l\'ouest Paris',
                     'phone' => '0123456789',
-                    'latitude' => 48.8566,
-                    'longitude' => 2.3522,
+                    'latitude' => 48.6566,
+                    'longitude' => 2.5522,
                 ],
 
                 [
                     'name' => 'Bee Very Green bikes',
                     'address' => 'Rue victoire',
                     'phone' => '0123456789',
-                    'latitude' => 48.8566,
-                    'longitude' => 2.3522,
+                    'latitude' => 48.8766,
+                    'longitude' => 2.3722,
                 ]
             ]
         );

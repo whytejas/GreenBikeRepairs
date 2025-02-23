@@ -21,4 +21,14 @@ class RepairShop extends Model
 
         ];
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function remainingSlots()
+    {
+        return 5 - $this->bookings()->whereDate('booking_date', today())->count();
+    }
 }

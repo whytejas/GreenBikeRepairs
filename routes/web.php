@@ -17,10 +17,15 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/api/user', function () {
+    $user = Auth::user();
+    return response()->json([$user], 200);
+});
+
 Route::get('/dashboard', function () {
     if (Auth::check()) {
         $user = Auth::user();
-        return response()->json(['message' => 'user found', $user]);
+        return response()->json([$user], 200);
     } else {
         return response()->json(['message' => 'Not authenticated'], 401); // Return 401 if not logged in
     }
@@ -33,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/bookings', [BookingController::class, 'store']);
 });
 
-//Route::get('/', [RepairShopController::class, 'index']);
+
 
 Route::resource('/repairshops', RepairShopController::class);
 

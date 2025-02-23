@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RepairShop extends Model
 {
     use Searchable;
+    protected $appends = ['remaining_slots'];
 
     // Define searchable data for Algolia
     public function toSearchableArray()
@@ -30,5 +31,10 @@ class RepairShop extends Model
     public function remainingSlots()
     {
         return 5 - $this->bookings()->whereDate('booking_date', today())->count();
+    }
+
+    public function getRemainingSlotsAttribute()
+    {
+        return $this->remainingSlots();
     }
 }

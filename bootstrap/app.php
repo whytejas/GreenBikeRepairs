@@ -18,7 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->statefulApi();
         $middleware->validateCsrfTokens(except: [
-            'http://localhost:3000',
+            'http://localhost:3000/*',
+            '/*'
 
         ]);
         $middleware->use([

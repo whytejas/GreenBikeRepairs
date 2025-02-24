@@ -15,9 +15,9 @@ return [
     |
     */
     'paths' => ['/*', 'sanctum/csrf-cookie'], // or just '*' if you want to allow all paths
-    'allowed_methods' => ['GET', 'POST', 'OPTIONS'],  // Allow all methods (GET, POST, PUT, DELETE, etc.)
-    'allowed_origins' => ['http://localhost:3000'],  // React frontend URL
-    'allowed_headers' => ['Origin', 'Content-Type', 'Accept', 'X-XSRF-TOKEN', 'X-Requested-With', 'Authorization'],
+    'allowed_methods' => ['GET, POST, PUT, DELETE, OPTIONS'],  // Allow all methods (GET, POST, PUT, DELETE, etc.)
+    'allowed_origins' => ['*'],  // React frontend URL
+    'allowed_headers' => ['Origin', 'Content-Type', 'Accept', 'X-XSRF-TOKEN', 'X-Requested-With'],
     'exposed_headers' => ['X-Total-Count'],
     'allow_credentials' => true,  // Allow cookies
     'max_age' => 3600,

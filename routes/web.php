@@ -8,6 +8,11 @@ use App\Http\Controllers\RepairShopController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BookingController;
 
+
+/* Route::get('/{any}', function () {
+    return  redirect('/user'); // This will serve React's index.html
+})->where('any', '.*'); */
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -17,9 +22,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/api/user', function () {
+Route::get('/user', function () {
     $user = Auth::user();
-    return response()->json([$user], 200);
+    if ($user !== null) {
+        return response()->json([$user], 200);
+    }
+    return response()->json(null, 404);
 });
 
 Route::get('/dashboard', function () {
@@ -31,13 +39,9 @@ Route::get('/dashboard', function () {
     }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::post('/bookings', [BookingController::class, 'store']);
-});
 
+Route::resource('/bookings', BookingController::class)->middleware('auth');
+Route::middleware('auth')->delete('/bookings/today', [BookingController::class, 'destroy']);
 
 
 Route::resource('/repairshops', RepairShopController::class);
